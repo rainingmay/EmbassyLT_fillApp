@@ -51,13 +51,27 @@ public class WebDriverHelper {
         driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
     }
 
+    public static void waitForPage(Long sec) throws InterruptedException {
+//        WebDriverWait wait = new WebDriverWait(driver, 2);
+//        wait.wait(2);
+        driver.manage().timeouts().implicitlyWait(sec, TimeUnit.SECONDS);
+    }
 
+    public static void clickToLink(WebElement link) {
+        WebDriverHelper.waitUntilElementClickable(link);
+        WebDriverHelper.waitUntilElementClickable(link);
+        link.click();
+    }
+
+    public static void fillTheField(WebElement field, String value) {
+        WebDriverHelper.waitUntilElementClickable(field);
+        field.click();
+        field.clear();
+        field.sendKeys(value);
+    }
 
     public WebDriverHelper (WebDriver driver) {
         PageFactory.initElements(driver, this);
     }
 
-    public String getPhotoUrl() {
-//        return linkToAsign.getAttribute("data-latest-bg");
-    }
 }

@@ -10,13 +10,17 @@ public class Main {
     @FindBy(linkText = "https://konsregua.urm.lt/en/visit/")
     private static WebElement linkToAsign;
 
+    @FindBy(css="a:contains('електронним записом')")
+    private static WebElement linkToAsign2;
+
+
     @FindBy(linkText = "register/ua1/Nacionalines_vizos_Ukraina_idarbinami_asmenys")
     private static WebElement secondLinkToAsign;
 
     public static void main(String[] args) throws InterruptedException, IOException {
         WebDriverHelper.openBrowser();
         WebDriverHelper.getDriver().get(baseUrl);
-        WebDriverHelper.clickToLink(linkToAsign);
+        WebDriverHelper.clickToLink(linkToAsign2);
         WebDriverHelper.clickToLink(secondLinkToAsign);
         ExcelHelper.methodFillApp();
     }

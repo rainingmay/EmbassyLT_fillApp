@@ -14,6 +14,7 @@ public class ExcelHelper {
 
     private static FileInputStream inputFile;
     private static HSSFWorkbook wbIn;
+//private static XSSFWorkbook
     private static Sheet sheetIn1;
     private static Row row1;
     private static Cell cell1name, cell2surname, cell3phone, cell4email, cell5passport;
@@ -32,8 +33,10 @@ public class ExcelHelper {
     @FindBy(className = "document  form-control")
     static WebElement passportField;
 
+//    static java.lang.String fileName =
+
     public static void methodFillApp() throws IOException, InterruptedException {
-        inputFile = new FileInputStream("!Embassy of the Republic of Lithuania to Ukraine.xls");
+        inputFile = new FileInputStream("Embassy of the Republic of Lithuania to Ukraine.xls");
         wbIn = new HSSFWorkbook(inputFile);
         sheetIn1 = wbIn.getSheetAt(0);
 
